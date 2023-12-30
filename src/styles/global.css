@@ -43,7 +43,11 @@
 }
 
 /* SURFACES */
-
+html {
+  --swiper-navigation-color: rgb(var(--color-primary));
+  --swiper-pagination-color: rgb(var(--color-primary));
+  --swiper-pagination-bullet-inactive-color: rgb(var(--color-primary));
+}
 body {
   --toastify-color-light: theme(colors.light);
   --toastify-color-dark: theme(colors.dark);

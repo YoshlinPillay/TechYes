@@ -13,21 +13,17 @@ import { t } from "@util/translate";
 import { getProducts } from "@src/data/supabase";
 
 export async function getStaticPaths() {
-  // const posts = (await getCollection("product")).sort(
-  //   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-  // );
-
   const posts = await getProducts();
   const count = posts.length;
   return posts.flatMap((post, index) => {
-    // let next: CollectionEntry<"product"> | null = null;
-    // let prev: CollectionEntry<"product"> | null = null;
     let next: any = null;
     let prev: any = null;
     const archiveNav = getArchiveNav(count, index, posts);
 
     next = archiveNav.next;
     prev = archiveNav.prev;
+
+    console.log("slug", post.slug);
 
     return {
       params: { slug: post.slug },

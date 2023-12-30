@@ -3,6 +3,8 @@ import Block from "@components/block/Block.astro";
 import BaseLayout from "./BaseLayout.astro";
 import HeroImage from "@components/hero/HeroImage.astro";
 import HeroPlain from "@components/hero/HeroPlain.astro";
+import HeroSlider from "@components/hero/HeroSlider.astro";
+import ShopCategories from "@components/block/ShopCategories.astro";
 
 const props = Astro.props;
 const { title, description, blocks, style, thumbnail, og_image } = Astro.props;
@@ -24,6 +26,7 @@ const hasBlocks = blocks && blocks.length > 0;
       </HeroPlain>
     )
   }
+
   {
     style.hero_template == "image" && (
       <HeroImage {...props}>
@@ -32,13 +35,27 @@ const hasBlocks = blocks && blocks.length > 0;
     )
   }
 
+  {
+    style.hero_template == "slider" && (
+      <>
+        <HeroSlider {...props}>
+          <slot name="hero" />
+        </HeroSlider>
+      </>
+    )
+  }
+
+  <!-- <code>
+    <pre>{JSON.stringify(props, undefined,1)}</pre>
+  </code> -->
+
   <div class="relative z-10 w-full" id="more">
-    <div
+    <!-- <div
       class=`page__content container-${style.container || 'md'} ${style.content_class || contentClass} `
     >
       <slot />
       {!hasBlocks && <slot name="nav" />}
-    </div>
+    </div> -->
 
     {
       hasBlocks && (

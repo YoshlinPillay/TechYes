@@ -49,7 +49,7 @@ const optionsArr = variations.map((option, index) => {
                 group={option.id}
                 className={`variation-item$${
                   opt.thumbnail ? "" : "fit"
-                } rounded-md overflow-hidden px-2 py-4  flex-1 group surface-overlay-hover-btn z-10`}
+                } surface-overlay-hover-btn group z-10 flex-1  overflow-hidden rounded-md px-2 py-4`}
                 client:visible
               >
                 {opt.thumbnail && option.show_images && (

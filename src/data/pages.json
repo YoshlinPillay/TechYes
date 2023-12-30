@@ -35,7 +35,7 @@
       "og_image": "/src/assets/og_image_nebulix.png",
       "template": "full",
       "container": "md",
-      "hero_template": "image",
+      "hero_template": "slider",
       "hero_buttons": [
         {
           "href": "#more",
@@ -52,6 +52,14 @@
         }
       ],
       "blocks": [
+        {
+          "template": "grid",
+          "animate": false,
+          "container": "md",
+          "categories": ["All", "CPUs", "GPUs", "SSDs", "MOBOs", "RAM"],
+          "component": "ShopCategories",
+          "title": "Categories"
+        },
         {
           "surface": "bg-slate-200 text-dark dark:bg-slate-900 dark:text-white",
           "container": "lg",
@@ -191,7 +199,7 @@
       "style": {
         "template": "full",
         "card_template": "grid",
-        "hero_template": "image",
+        "hero_template": "slider",
         "hero_surface": "surface-dark",
         "hero_image_opacity": "",
         "container": "sm",
