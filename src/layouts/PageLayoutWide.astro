@@ -4,11 +4,10 @@ import BaseLayout from "./BaseLayout.astro";
 import HeroImage from "@components/hero/HeroImage.astro";
 import HeroPlain from "@components/hero/HeroPlain.astro";
 import HeroSlider from "@components/hero/HeroSlider.astro";
-import ShopCategories from "@components/block/ShopCategories.astro";
 
 const props = Astro.props;
-const { title, description, blocks, style, thumbnail, og_image } = Astro.props;
-const contentClass = style.hero_template === "plain" ? "py-0" : "py-0";
+const { title, description, blocks, style, thumbnail, og_image, slug } =
+  Astro.props;
 const hasBlocks = blocks && blocks.length > 0;
 ---
 
@@ -45,18 +44,7 @@ const hasBlocks = blocks && blocks.length > 0;
     )
   }
 
-  <!-- <code>
-    <pre>{JSON.stringify(props, undefined,1)}</pre>
-  </code> -->
-
   <div class="relative z-10 w-full" id="more">
-    <!-- <div
-      class=`page__content container-${style.container || 'md'} ${style.content_class || contentClass} `
-    >
-      <slot />
-      {!hasBlocks && <slot name="nav" />}
-    </div> -->
-
     {
       hasBlocks && (
         <>
@@ -74,6 +62,8 @@ const hasBlocks = blocks && blocks.length > 0;
       <slot name="cart" />
     </div>
   </div>
+
+  <slot name="body-content" />
 </BaseLayout>
 
 <style is:global>

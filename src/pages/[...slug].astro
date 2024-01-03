@@ -1,4 +1,5 @@
 ---
+import Policies from "@components/block/Policies.astro";
 import PageLayoutSplit from "@layouts/PageLayoutSplit.astro";
 import PageLayoutWide from "@layouts/PageLayoutWide.astro";
 import posts from "@src/data/pages.json";
@@ -23,7 +24,13 @@ export const prerender = true;
 
 {
   // Render a full-width page layout
-  post.data.style.template === "full" && <PageLayoutWide {...post.data} />
+  post.data.style.template === "full" && (
+    <PageLayoutWide {...post.data}>
+      <div slot="body-content" class="container-lg">
+        <Policies />
+      </div>
+    </PageLayoutWide>
+  )
 }
 {
   // Render a split-width page layout
