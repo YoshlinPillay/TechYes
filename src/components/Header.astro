@@ -26,7 +26,7 @@ const isActive = (href) => {
       aria-label={title}
       class="grid place-items-center py-3 text-primary"
     >
-      <Icon name="logo" class="w-full max-w-[150px]" />
+      <Icon name="logo" class="w-full min-w-[150px] max-w-[150px]" />
     </a>
     {
       menu && (
@@ -37,7 +37,7 @@ const isActive = (href) => {
                 isActive(link.href) ? "active font-semibold" : ""
               } grid place-content-center`}
             >
-              <a href={link.href} class={`block py-3`}>
+              <a href={link.href} class={`block py-3 text-center`}>
                 {link.label}
               </a>
             </li>
@@ -98,27 +98,6 @@ const isActive = (href) => {
                   </li>
                 ))}
               </ul>
-
-              <ul
-                class="relatives flex w-full flex-wrap justify-center gap-2 py-4"
-                slot="social"
-              >
-                {social.map((link, index) => (
-                  <li
-                    class="inner"
-                    style={`--animation-delay: ${(index + 1) * 100}ms`}
-                  >
-                    <a
-                      href={link.href}
-                      class="grid h-full place-items-center "
-                      target="_blank"
-                      aria-label={link.label}
-                    >
-                      <Icon name={link.icon} class="h-8 w-8" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
             </NavMobile>
           </li>
         </ul>
@@ -130,11 +109,12 @@ const isActive = (href) => {
   .nav {
     @apply transition-transform duration-500;
     ul {
-      --_gap: 1rem;
+      --_gap: 2rem;
     }
     .nav-underline li:not(ul li ul li) {
       @apply relative overflow-hidden;
-      padding: calc(var(--_gap) / 2);
+      padding-inline: calc(var(--_gap) / 2);
+      padding-block: 0.5rem;
       min-inline-size: 1.3rem;
 
       &::after {
@@ -169,3 +149,24 @@ const isActive = (href) => {
     }
   }
 </style>
+
+<!-- <ul
+                class="relatives flex w-full flex-wrap justify-center gap-2 py-4"
+                slot="social"
+              >
+                {social.map((link, index) => (
+                  <li
+                    class="inner"
+                    style={`--animation-delay: ${(index + 1) * 100}ms`}
+                  >
+                    <a
+                      href={link.href}
+                      class="grid h-full place-items-center "
+                      target="_blank"
+                      aria-label={link.label}
+                    >
+                      <Icon name={link.icon} class="h-8 w-8" />
+                    </a>
+                  </li>
+                ))}
+              </ul> -->
